@@ -8,7 +8,7 @@ def GenerateWord():
     s=''
     for num in range(5):
         head = random.randint(0xb0, 0xf7)
-        body = random.randint(0xa1, 0xf9)  
+        body = random.randint(0xa1, 0xf9)
         val = f'{head:x}{body:x}'
         s += bytes.fromhex(val).decode('gb2312')
     return s
@@ -19,7 +19,6 @@ def Checkrepetition(chat,chatList):
         chatList.pop(0)
     if chat in chatList:
         myword = GenerateWord()
-
         return myword,chatList
     else:
         chatList.append(chat)
@@ -46,6 +45,6 @@ def Chitchat():
         print('刘能：', resp['content'])
         zs,chatList=Checkrepetition(resp['content'], chatList)
 
-
 if __name__ == "__main__":
     Chitchat()
+
